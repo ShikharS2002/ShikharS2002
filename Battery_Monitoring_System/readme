@@ -1,0 +1,8 @@
+This project aims to create a battery monitoring system using Arduino Uno.
+The objective is to monitor the voltage of the batteries and show the current and temperature values.
+If a battery is faulty i.e voltage less than 2V a fault indicator LED will be turned on and if the temperature rises above 40 degrees an alert buzzer is sounded.
+If cumulative voltage of all 3 batteries is less than a threshold value of 5V the relay is used to disconnect the load from the battery pack.
+
+Demonstration Video Link: - Work in Progress.
+
+The pdsrpj and hex files can be used to simulate the BMS system.
