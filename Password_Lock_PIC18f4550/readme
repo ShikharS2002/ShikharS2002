@@ -1,0 +1,11 @@
+This project aims at building a password lock using PIC18f4550 controller a 4 x 4 keypad and an LCD.
+At first the controller asks for the user to enter the password he wants.
+Then the PIC controller sets the password and is in the locked state. It then asks the user for the correct password to unlock it.
+If the users enters the same password that he sets the controller unlocks and displays unlocked. Then the user must push the ON/C button to relock the controller.
+When the button is pressed the controller relocks and again asks the user to enter the password to unlock it.
+Locking and Unlocking action is simulated by a stepper motor which acts as the locking mechanism. When vertical it represents locked state when horizontal it is unlocked state.
+A buzzer is sounded three times when an incorrect password is entered.
+
+Demonstration Video: - Work in Progress.
+
+The pdsrpj and hex files can be used to simulate the password lock.
