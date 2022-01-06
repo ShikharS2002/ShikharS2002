@@ -1,0 +1,8 @@
+This project aims to build a weather monitoring system using Arduino Uno and ESP 01 wifi module, which can transmit and store it's data on the thinkspeak IoT cloud.
+The Uno controller monitors the temperature, atmospheric pressure, humidity and rainfall using DHT11, BMP180 and rainfall sensors.
+All readings are shown on a LCD as well as transmitted to the thinkspeak IoT cloud.
+All readings can be viewed as a chart on the thinkspeak cloud.
+
+Video Demonstration: - Work in Progress.
+
+The pdsrpj and hex files can be used to simulate the project.
