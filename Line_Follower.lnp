@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\Line_Follower.obj" 
+TO ".\Objects\Line_Follower" 
+PRINT(".\Listings\Line_Follower.m51") RAMSIZE(256) 
