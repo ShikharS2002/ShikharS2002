@@ -1,0 +1,8 @@
+The Line follower is designed to follow a white line.
+When both sensors detect a white line the bot is stopped.
+When neither sensor detects a white line the robot moves forward.
+When only 1 sensor detects a white line the robot turns accordingly to follow the line.
+
+Video Link: - Work in Progress.
+
+The proteus pdsrpj file can be used along with the line_follower.hex file to simulate the line follower.
