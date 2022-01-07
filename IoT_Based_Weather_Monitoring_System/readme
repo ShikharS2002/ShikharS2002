@@ -4,5 +4,3 @@ All readings are shown on a LCD as well as transmitted to the thinkspeak IoT clo
 All readings can be viewed as a chart on the thinkspeak cloud.
 
 Video Demonstration: - Work in Progress.
-
-The pdsrpj and hex files can be used to simulate the project.
