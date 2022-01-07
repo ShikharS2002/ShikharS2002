@@ -7,5 +7,3 @@ Locking and Unlocking action is simulated by a stepper motor which acts as the l
 A buzzer is sounded three times when an incorrect password is entered.
 
 Demonstration Video: - Work in Progress.
-
-The pdsrpj and hex files can be used to simulate the password lock.
