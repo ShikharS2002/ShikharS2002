@@ -4,5 +4,3 @@ If a battery is faulty i.e voltage less than 2V a fault indicator LED will be tu
 If cumulative voltage of all 3 batteries is less than a threshold value of 5V the relay is used to disconnect the load from the battery pack.
 
 Demonstration Video Link: - Work in Progress.
-
-The pdsrpj and hex files can be used to simulate the BMS system.
