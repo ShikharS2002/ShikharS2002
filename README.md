@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @ShikharS2002
 - 👀 I’m interested in embedded systems and Internet of Things
 - 🌱 I’m currently learning Electronics and Telecommunication Engineering at Pune Institute of Computer Technology. 
-- 💞️ I’m looking to collaborate on any embedded system/IoT project or problem statement
+- 💞️ I’m looking to collaborate on any embedded system/IoT project or project.
 - 📫 How to reach me : - You can call or message me on my number 7447658518 or you can email me at sshikhar2002@gmail.com.
 
 <!---
