@@ -1,9 +1,6 @@
 /* Programmer Name: - Shikhar Singh
-   Class: - SE 7
-   Batch: - F7
-   Roll Number: - 22338
 
-   Weather Monitoring System Code.
+   Weather Monitoring System.
 
    Program Philosophy: - Snsors provide data which is stored in variables , the data is converted to a string and displayed on an lcd.
                          The strings are catenated into a long string and are sent serially to nodemcu module for iot interfacing.
