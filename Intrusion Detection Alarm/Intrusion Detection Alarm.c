@@ -1,30 +1,40 @@
 /*
 Programmer Name: - Shikhar Singh
 Program Title: - Motion Sensor Email
-
-
 */
 #include <WiFi.h>
 #include <HTTPClient.h>
 
-const char wifi_SSID[] = "##########";
-const char wifi_PASS[] = "##########";
+#define SOUND_SPEED 0.034
+#define CM_TO_INCH 0.3937
+
+const char wifi_SSID[] = "Redmi";
+const char wifi_PASS[] = "Shikhar@02";
 int wifi_TIMEOUT = 20000;
 
-String Host_Name = "https://maker.ifttt.com/trigger/";
-String Path_Name = "/with/key/i8JvcJcAH4BRJ8gwBlBItMky-cKL-z_R1wH88hysZep";
+const String Host_Name = "https://maker.ifttt.com/trigger/";
+const String Motion_Event = "INTRUSION_DETECTED";
+const String Sound_Event = "SOUND_DETECTED";
+const String Path_Name = "/with/key/i8JvcJcAH4BRJ8gwBlBItMky-cKL-z_R1wH88hysZep";
 String Query_String = "?value1=20&value2=40&value3=90";
 
 HTTPClient http;
 
-int motion = 0;
-int sound = 0;
-int sound_timeout = 2000;
-int sound_doonce = 0;
-int sound_start = 0;
-int mail_timeout = 120000;
-int doonce = 0;
-int motion_start = millis();
+uint32_t duration = 0;
+float distance_CM = 0;
+float distance_INCH = 0;
+
+uint8_t trig = 18;
+uint8_t echo = 5;
+uint8_t sound = 19;
+
+uint8_t motion_doonce = 0;
+uint32_t motion_time = 0;
+uint32_t motion_timeout = 120000;
+
+uint8_t sound_doonce = 0;
+uint32_t sound_time = 0;
+uint32_t sound_timeout = 120000;
 
 void connect_to_wifi() {
   WiFi.mode(WIFI_STA);
@@ -53,6 +63,7 @@ void connect_to_wifi() {
 void send_email(String Event_Name) {
   int code;
   http.begin(Host_Name + Event_Name + Path_Name + Query_String);
+  Serial.println(Host_Name + Event_Name + Path_Name + Query_String);
 
   code = http.GET();
 
@@ -78,10 +89,11 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
 
-  pinMode(5, OUTPUT);
-  pinMode(4, INPUT);
-
-  doonce = 0;
+  pinMode(15, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(trig, OUTPUT);
+  pinMode(echo, INPUT);
+  pinMode(sound, INPUT);
 
   Serial.println(" ");
   Serial.println("-------------------------------------------------");
@@ -95,40 +107,36 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  motion = digitalRead(4);
-  sound = digitalRead(33);
+  digitalWrite(trig, LOW);
+  digitalWrite(echo, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trig, LOW);
 
-  if(motion == 0) {
-    digitalWrite(5, LOW);
+  duration = pulseIn(echo, HIGH);
+  distance_CM = duration * SOUND_SPEED;
+  distance_INCH = distance_CM * CM_TO_INCH;
+
+  if(digitalRead(sound) == HIGH) {
+    Serial.println("Sound Detected");
+    sound_doonce = 1;
+    send_email(Sound_Event);
+    sound_time = millis();
   }
 
-  else {
-    digitalWrite(5, HIGH);
-    if(doonce == 0) {
-      doonce = 1;
-      motion_start = millis();
-      send_email("MOTION_DETECTED");
-    }
+  if(distance_INCH <= 15.00 && motion_doonce == 0) {
+    Serial.println("Intrusion Detected");
+    motion_doonce = 1;
+    send_email(Motion_Event);
+    motion_time = millis();
   }
 
-  if(sound == 0) {
-    digitalWrite(18, LOW);
-  }
-  
-  else {
-    digitalWrite(18, HIGH);
-    if(sound_doonce == 0) {
-      sound_doonce = 1;
-      sound_start = millis();
-      send_email("SOUND_DETECTED");
-    }
+  if(millis() - motion_time >= motion_timeout) {
+    motion_doonce = 0;
   }
 
-  if(doonce == 1 && millis() - motion_start == mail_timeout) {
-    doonce = 0;
-  }
-
-  if(sound_doonce == 1 && millis() - sound_start == sound_timeout) {
+  if(millis() - sound_time >= sound_timeout) {
     sound_doonce = 0;
   }
 }
