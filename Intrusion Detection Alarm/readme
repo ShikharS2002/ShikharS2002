@@ -1,4 +1,4 @@
 This project aims to create an intrusion detection alarm that alerts the user via Email when intrusion is detected.
 This project uses ESP32, sound sensor, and motion sensor, when intrusion is detected an email is sent to the user using IFTTT.
 
-Video Demonstration: - Work in Progress.
+Video Demonstration: - https://drive.google.com/file/d/1xCM2TzZUTjVxlFSOglhfIP9tR0SVMrVC/view?usp=sharing
