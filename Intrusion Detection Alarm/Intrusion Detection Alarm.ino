@@ -1,32 +1,8 @@
 /*
 Programmer Name: - Shikhar Singh
 Program Title: - Motion Sensor Email
-
-CONFIG: - 
-
-PIR: - /---------------
-VCC: - Power Rail
-GND: - GND Rail
-OUT: - ESP Pin 4
-/----------------------
-
-ESP32: - /-------------
-Powered through USB port
-GND: - GND Rail
-Pin 4: - PIR OUT pin
-Pin 5: - +ve LED
-/----------------------
-
-Battery: - /-----------
-+ve: - Power Rail
--ve: - GND Rail
-/----------------------
-
-LED: - /---------------
-+ve: - ESP Pin 5
--ve: - GND Rail
-/----------------------
 */
+
 #include <WiFi.h>
 #include <HTTPClient.h>
 
