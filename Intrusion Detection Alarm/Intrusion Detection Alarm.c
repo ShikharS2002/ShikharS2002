@@ -7,8 +7,8 @@ Program Title: - Motion Sensor Email
 #include <WiFi.h>
 #include <HTTPClient.h>
 
-const char wifi_SSID[] = "Redmi";
-const char wifi_PASS[] = "Shikhar@02";
+const char wifi_SSID[] = "##########";
+const char wifi_PASS[] = "##########";
 int wifi_TIMEOUT = 20000;
 
 String Host_Name = "https://maker.ifttt.com/trigger/";
