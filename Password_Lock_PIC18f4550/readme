@@ -5,5 +5,3 @@ If the users enters the same password that he sets the controller unlocks and di
 When the button is pressed the controller relocks and again asks the user to enter the password to unlock it.
 Locking and Unlocking action is simulated by a stepper motor which acts as the locking mechanism. When vertical it represents locked state when horizontal it is unlocked state.
 A buzzer is sounded three times when an incorrect password is entered.
-
-Demonstration Video: - Work in Progress.
